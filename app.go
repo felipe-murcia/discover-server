@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"discoverco.co/server/configs"
+	"discoverco.co/server/routes"
 	"github.com/gin-gonic/gin"
 	//cors "github.com/itsjamie/gin-cors"
 )
@@ -28,7 +29,8 @@ func main() {
 			ValidateHeaders: false,
 		}))
 
-		routes.PersonRouter(r)*/
+	*/
+	routes.PersonRouter(r)
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
