@@ -7,17 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine {
-	router := gin.Default()
+func FeatureRouter(router *gin.Engine) {
+	routes := router.Group("api/v1/features")
 
 	featureRepository := repositories.NewFeatureRepositoryImpl()
 	featureService := services.NewFeatureService(featureRepository)
 	featureController := controllers.NewFeatureController(featureService)
 
-	router.GET("/features", featureController.FindAll)
+	routes.GET("", featureController.FindAll)
 
-	//r := gin.Default()
-	FeatureRouter(router)
-
-	return router
 }
