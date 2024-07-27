@@ -15,7 +15,7 @@ func init() {
 
 func main() {
 
-	r := gin.Default()
+	//r := gin.Default()
 
 	// Apply the middleware to the router (works with groups too)
 	/*
@@ -30,11 +30,13 @@ func main() {
 		}))
 
 	*/
-	routes.PersonRouter(r)
+	//routes.PersonRouter(r)
+
+	r := routes.SetupRouter()
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello world from server Go.",
+			"message": "Hello from server Go Discoverco.",
 		})
 	})
 	r.Run()
